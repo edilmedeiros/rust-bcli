@@ -1,2 +1,2 @@
 
-const DEBUG: bool = false;
+const DEBUG_FLAG: bool = false;
