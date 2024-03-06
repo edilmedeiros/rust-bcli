@@ -1,0 +1,2 @@
+
+const DEBUG: bool = false;
