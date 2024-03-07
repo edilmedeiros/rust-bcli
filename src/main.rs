@@ -1,8 +1,24 @@
+
 mod constants;
+use clap::Parser;
+
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+
+    #[arg(short, long)]
+    name: String,
+
+    #[arg(short, long, default_value_t = 1)]
+    count: u8,
+    
+}
 
 fn main() {
-    println!("Hello, world!");
+    let args = Args::parse();
 
-    // Checked how to call an option message from the constants module
-    println!("{}", constants::GENERATE_MSG);
+    for _ in 0..args.count {
+        println!("Hello {}!", args.name);
+    }
+
 }
