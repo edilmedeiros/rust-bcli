@@ -1,11 +1,9 @@
 //
 // constants.rs
 //
-//
 
-// System and execution
-
-pub const DEBUG_FLAG: bool = false;
+// Supress compiler warning of unused variables
+#![allow(dead_code)]
 
 // Options
 
@@ -38,6 +36,8 @@ pub const SIGNET_SEED_NODE: &str = "signetseednode";
 pub const TESTNET: &str = "testnet";
 
 // Option messages
+
+// TODO: Clear from bitcoin-cli specifics and adapt to our new interface
 
 pub const HELP_MSG: &str = "Print this help message and exit";
 
@@ -132,3 +132,65 @@ pub const SIGNET_SEED_NODE_MSG: &str = "Specify a seed node for the signet netwo
                                         network seed node(s))";
 
 pub const TESTNET_MSG: &str = "Use the test chain. Equivalent to -chain=test.";
+
+// Commands
+
+// == Control ==
+pub const HELP: &str = "help";
+pub const STOP: &str = "stop";
+pub const UPTIMR: &str = "uptime";
+
+// == Blockchain ==
+pub const GET_BEST_BLOCK_HASH: &str = "getbestblockhash";
+pub const GET_BLOCK: &str = "getblock";
+pub const GET_BLOCKCHAIN_INFO: &str = "getblockchaininfo";
+pub const GET_BLOCK_COUNT: &str = "getblockcount";
+pub const GET_BLOCK_HASH: &str = "getblockhash";
+pub const GET_BLOCK_HEADER: &str = "getblockheader";
+pub const GET_BLOCK_STATS: &str = "getblockstats";
+pub const GET_DIFFICULTY: &str = "getdifficulty";
+
+// == Network ==
+pub const GET_CONNECTION_COUNT: &str = "getconnectioncount";
+pub const GET_NET_TOTALS: &str = "getnettotals";
+pub const GET_NETWORK_INFO: &str = "getnetworkinfo";
+
+// == Rawtransactions ==
+pub const COMBINE_RAW_TRANSACTION: &str = "combinerawtransaction";
+pub const CREATE_RAW_TRANSACTION: &str = "createrawtransaction";
+pub const DECODE_RAW_TRANSACTION: &str = "decoderawtransaction";
+pub const DECODE_SCRIPT: &str = "decodescript";
+pub const GET_RAW_TRANSACTION: &str = "getrawtransaction";
+pub const TEST_MEMPOOL_ACCEPT: &str = "testmempoolaccept";
+
+// Commands messages
+
+// TODO: Adapt messages as we implenet the commands
+
+// == Control ==
+pub const HELP_MSG: &str = "help ( \"command\" )";
+pub const STOP_MSG: &str = "stop";
+pub const UPTIMR_MSG: &str = "uptime";
+
+// == Blockchain ==
+pub const GET_BEST_BLOCK_HASH_MSG: &str = "getbestblockhash";
+pub const GET_BLOCK_MSG: &str = "getblock \"blockhash\" ( verbosity )";
+pub const GET_BLOCKCHAIN_INFO_MSG: &str = "getblockchaininfo";
+pub const GET_BLOCK_COUNT_MSG: &str = "getblockcount";
+pub const GET_BLOCK_HASH_MSG: &str = "getblockhash height";
+pub const GET_BLOCK_HEADER_MSG: &str = "getblockheader \"blockhash\" ( verbose )";
+pub const GET_BLOCK_STATS_MSG: &str = "getblockstats hash_or_height ( stats )";
+pub const GET_DIFFICULTY_MSG: &str = "getdifficulty";
+
+// == Network ==
+pub const GET_CONNECTION_COUNT_MSG: &str = "getconnectioncount";
+pub const GET_NET_TOTALS_MSG: &str = "getnettotals";
+pub const GET_NETWORK_INFO_MSG: &str = "getnetworkinfo";
+
+// == Rawtransactions ==
+pub const COMBINE_RAW_TRANSACTION_MSG: &str = "combinerawtransaction [\"hexstring\",...]";
+pub const CREATE_RAW_TRANSACTION_MSG: &str = "createrawtransaction [{\"txid\":\"hex\",\"vout\":n,\"sequence\":n},...] [{\"address\":amount,...},{\"data\":\"hex\"},...] ( locktime replaceable )";
+pub const DECODE_RAW_TRANSACTION_MSG: &str = "decoderawtransaction \"hexstring\" ( iswitness )";
+pub const DECODE_SCRIPT_MSG: &str = "decodescript \"hexstring\"";
+pub const GET_RAW_TRANSACTION_MSG: &str = "getrawtransaction \"txid\" ( verbosity \"blockhash\" )";
+pub const TEST_MEMPOOL_ACCEPT_MSG: &str = "testmempoolaccept [\"rawtx\",...] ( maxfeerate )";
