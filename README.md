@@ -61,3 +61,23 @@ Improvements:
   specifically, instead of receiving a somewhat inscrutable error from the RPC
   server.
 
+## Design
+
+The binary is called `bitcoin`. 
+
+``` shell
+Usage:  bitcoin [options] <method> [--arg value]...  Send command to Bitcoin Core with named arguments
+or:     bitcoin [options] man                        Display list of supported methods
+or:     bitcoin [options] man <method>               Display manual page for a method
+```
+
+We want to have a coherent user interface, so we define a semantic structure.
+
+**Options** are information that influences the behavior of the tool and don't
+have connection to Core's RPC interface methods.
+
+**Methods** are the available commands known and exposed by the RPC server.
+
+**Arguments** are input data required by the specified method.
+
+The `man`ual method is used to show the manual page of a specified method.
