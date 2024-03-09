@@ -8,4 +8,3 @@ edition = "2021"
 [dependencies]
 bitcoincore-rpc = "0.18.0"
 clap = { version = "4.5.2", features = ["derive"] }
-bitcoincore-rpc = "0.18.0"
