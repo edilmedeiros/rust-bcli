@@ -6,6 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bitcoincore-rpc = "0.18.0"
 clap = { version = "4.5.2", features = ["derive"] }
 bitcoincore-rpc = "0.18.0"
