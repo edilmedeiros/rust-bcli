@@ -1,10 +1,22 @@
-# rust-bcli
-Bitcoin CLI in Rust.
+# Bitcoin CLI in Rust
+
+This is an optiniated alternative implementation in Rust of the `bitcoin-cli`
+tool to interact with Bitcoin Core's RPC interface. 
+
+## Project Status
+
+We are currently in the ideation phase, don't expect to find a tool now.
+
+Check the issues and tell us your chores with `bitcoin-cli` and how it could be
+improved.
 
 ## The problem
 
 The main tool provided by [Bitcoin-core](https://github.com/bitcoin/bitcoin) is
-`bitcoind`, a daemon that implements full node, wallet and mining logic. 
+`bitcoind`, a daemon that implements full node, wallet and mining logic.
+`bitcoin-cli` is a command line RPC client to interact with the node.
+
+The following came as a project suggestion on the [2024 Chaincode Labs FOSS Program](https://learning.chaincode.com/#FOSS).
 
 Some of the shortcomings of `bitcoin-cli`:
 - Nonstandard single dash long arguments, e.g., `-datadir`, when most other CLI
