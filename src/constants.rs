@@ -1,13 +1,11 @@
 //
 // constants.rs
 //
-
-// Supress compiler warning of unused variables
-#![allow(dead_code)]
+#![allow(dead_code)] // TODO: Remove when done
 
 // Options
 
-pub const HELP: &str = "?";
+pub const HELP_OPTION: &str = "?";
 pub const ADDR_INFO: &str = "addrinfo";
 pub const COLOR: &str = "color";
 pub const CONF: &str = "conf";
@@ -39,7 +37,7 @@ pub const TESTNET: &str = "testnet";
 
 // TODO: Clear from bitcoin-cli specifics and adapt to our new interface
 
-pub const HELP_MSG: &str = "Print this help message and exit";
+pub const HELP_OPTION_MSG: &str = "Print this help message and exit";
 
 pub const ADDR_INFO_MSG: &str = "Get the number of addresses known to the node, per network and total, \
                                 after filtering for quality and recency. The total number of \
@@ -136,7 +134,7 @@ pub const TESTNET_MSG: &str = "Use the test chain. Equivalent to -chain=test.";
 // Commands
 
 // == Control ==
-pub const HELP: &str = "help";
+pub const HELP_COMMAND: &str = "help";
 pub const STOP: &str = "stop";
 pub const UPTIMR: &str = "uptime";
 
@@ -168,7 +166,7 @@ pub const TEST_MEMPOOL_ACCEPT: &str = "testmempoolaccept";
 // TODO: Adapt messages as we implenet the commands
 
 // == Control ==
-pub const HELP_MSG: &str = "help ( \"command\" )";
+pub const HELP_COMMAND_MSG: &str = "help ( \"command\" )";
 pub const STOP_MSG: &str = "stop";
 pub const UPTIMR_MSG: &str = "uptime";
 
