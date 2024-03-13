@@ -6,6 +6,7 @@
 //
 #![allow(unused_imports)] // TODO: Remove when done
 
+// External crates shortcuts
 use bitcoincore_rpc::{bitcoin, Auth, Client, Error, RpcApi};
 
 // Creates an rpc client used as a base to communicate with the API methods
