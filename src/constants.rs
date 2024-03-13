@@ -136,7 +136,7 @@ pub const TESTNET_MSG: &str = "Use the test chain. Equivalent to -chain=test.";
 // == Control ==
 pub const HELP_COMMAND: &str = "help";
 pub const STOP: &str = "stop";
-pub const UPTIMR: &str = "uptime";
+pub const UPTIME: &str = "uptime";
 
 // == Blockchain ==
 pub const GET_BEST_BLOCK_HASH: &str = "getbestblockhash";
@@ -168,7 +168,7 @@ pub const TEST_MEMPOOL_ACCEPT: &str = "testmempoolaccept";
 // == Control ==
 pub const HELP_COMMAND_MSG: &str = "help ( \"command\" )";
 pub const STOP_MSG: &str = "stop";
-pub const UPTIMR_MSG: &str = "uptime";
+pub const UPTIME_MSG: &str = "uptime";
 
 // == Blockchain ==
 pub const GET_BEST_BLOCK_HASH_MSG: &str = "getbestblockhash";
