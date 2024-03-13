@@ -7,10 +7,10 @@
 #![allow(unused_imports)] // TODO: Remove when done
 
 // Priject shortcuts
-use crate::constants;
+use crate::constants::*;
 
 // External crates shortcuts
-use clap::Parser;
+use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -25,6 +25,14 @@ pub struct Args {
     #[arg(short, long)]
     pub pass: String,
 
+    #[command(subcommand)]
+    pub command: Commands,
+}
+
+#[derive(Debug, Subcommand)]
+pub enum Commands {
+    #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
+    GetBestBlockHash,
 }
 
 // Returns the arguments from the clap parser as an Args struct defined above
