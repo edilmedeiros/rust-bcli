@@ -28,14 +28,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Get the rpc client from our rpc wrapper module
     let rpc = rpc::rpc(&args.url, &args.user, &args.pass)?;
 
+    // Match command args and call the right function!
     match args.command {
         Commands::GetBestBlockHash => {
-            let best_block_hash = get_best_block_hash(&rpc)?;
-            println!("Best block hash: {}", best_block_hash);
+            get_best_block_hash(&rpc)?;
         }
-        // Example for handling a hypothetical Uptime command
         Commands::Uptime => {
-            let uptime = get_uptime(&rpc)?;
+            get_uptime(&rpc)?;
         }
     }
 
