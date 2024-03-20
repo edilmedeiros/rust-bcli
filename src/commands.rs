@@ -17,6 +17,7 @@ use bitcoincore_rpc::{bitcoin, bitcoin::BlockHash, Auth, Client, Error, RpcApi};
 // default move strategy in order to reuse the client elsewhere as well.
 // The function is expected to return the best block as a primitive number
 // type (Not implemented yet)
+
 pub fn get_best_block_hash(rpc: &Client) -> Result<BlockHash, Error> {
     let best_block_hash = rpc.get_best_block_hash()?;
     println!("best block hash: {}", best_block_hash);
@@ -31,3 +32,4 @@ pub fn get_uptime(rpc: &Client) -> Result<String, Error> {
     println!("{}", UPTIME);
     Ok(formatted_uptime)
 }
+

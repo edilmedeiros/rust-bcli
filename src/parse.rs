@@ -15,6 +15,7 @@ use clap::{Parser, Subcommand};
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 pub struct Args {
+
     #[arg(long)]
     pub url: String,
 
@@ -35,6 +36,7 @@ pub enum Commands {
 
     #[command(name = UPTIME, about = UPTIME)]
     Uptime,
+
 }
 
 // Returns the arguments from the clap parser as an Args struct defined above
