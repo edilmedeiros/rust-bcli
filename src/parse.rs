@@ -42,8 +42,6 @@ pub enum Command {
 
     // stop
 
-    // uptime
-
     #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
     GetBestBlockHash,
 
