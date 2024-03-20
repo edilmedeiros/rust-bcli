@@ -44,10 +44,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Left here as reference from the example at:
     https://github.com/rust-bitcoin/rust-bitcoincore-rpc/blob/1b51e3d0bb614d36d256947f55d228ac0e1dc58f/client/examples/test_against_node.rs
 
-    /***
-    Left here as reference from the example at:
-    https://github.com/rust-bitcoin/rust-bitcoincore-rpc/blob/1b51e3d0bb614d36d256947f55d228ac0e1dc58f/client/examples/test_against_node.rs
-    
     let _blockchain_info = rpc.get_blockchain_info();
     let best_block_hash = rpc.get_best_block_hash().unwrap();
     println!("best block hash: {}", best_block_hash);
