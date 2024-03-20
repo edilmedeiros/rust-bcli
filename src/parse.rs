@@ -14,22 +14,22 @@ use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
-pub struct Opts {
 
+pub struct Opts {
     #[arg(long, default_value = "")]
     pub conf: String,
 
-    #[arg(long, default_value = "localhost")]
-    pub rpcurl: String,
+    #[arg(long)]
+    pub rpcurl: Option<String>,
 
-    #[arg(long, default_value = "8332")]
-    pub rpcport: String,
+    #[arg(long)]
+    pub rpcport: Option<String>,
 
-    #[arg(long, default_value = "")]
-    pub rpcuser: String,
+    #[arg(long)]
+    pub rpcuser: Option<String>,
 
-    #[arg(long, default_value = "")]
-    pub rpcpassword: String,
+    #[arg(long)]
+    pub rpcpassword: Option<String>,
 
     #[command(subcommand)]
     pub command: Command,
@@ -37,17 +37,14 @@ pub struct Opts {
 
 #[derive(Debug, Subcommand)]
 pub enum Command {
-
     // man
 
     // stop
-
     #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
     GetBestBlockHash,
 
     #[command(name = UPTIME, about = UPTIME)]
     Uptime,
-
 }
 
 // Returns the arguments from the clap parser as an Args struct defined above
