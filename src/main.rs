@@ -15,7 +15,7 @@ mod utils;
 // Project shortcuts
 use parse::Opts;
 use parse::get_args;
-use parse::Commands;
+use parse::Command;
 use commands::*;
 
 
@@ -28,14 +28,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let opts = get_args();
 
     // Get the rpc client from our rpc wrapper module
-    let rpc = rpc::rpc(&opts.url, &opts.user, &opts.pass)?;
+    let rpc = rpc::rpc(&opts.rpcurl, &opts.rpcport, &opts.rpcuser, &opts.rpcpassword)?;
 
     // Match command args and call the right function!
     match opts.command {
-        Commands::GetBestBlockHash => {
+        Command::GetBestBlockHash => {
             get_best_block_hash(&rpc)?;
         }
-        Commands::Uptime => {
+        Command::Uptime => {
             get_uptime(&rpc)?;
         }
     }
