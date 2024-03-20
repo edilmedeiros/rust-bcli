@@ -13,10 +13,10 @@ mod rpc;
 mod utils;
 
 // Project shortcuts
-use commands::*;
+use parse::Opts;
 use parse::get_args;
-use parse::Args;
 use parse::Commands;
+use commands::*;
 
 
 // External crates shortcuts
@@ -25,13 +25,13 @@ use bitcoincore_rpc::{bitcoin, Auth, Client, Error, RpcApi};
 fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Get the arguments from our wrapper parser
-    let args = get_args();
+    let opts = get_args();
 
     // Get the rpc client from our rpc wrapper module
-    let rpc = rpc::rpc(&args.url, &args.user, &args.pass)?;
+    let rpc = rpc::rpc(&opts.url, &opts.user, &opts.pass)?;
 
     // Match command args and call the right function!
-    match args.command {
+    match opts.command {
         Commands::GetBestBlockHash => {
             get_best_block_hash(&rpc)?;
         }
@@ -50,10 +50,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Call our commands module! 
     let best_block_hash = get_best_block_hash(&rpc);
 
-    /***
-    Left here as reference from the example at:
-    https://github.com/rust-bitcoin/rust-bitcoincore-rpc/blob/1b51e3d0bb614d36d256947f55d228ac0e1dc58f/client/examples/test_against_node.rs
-    
     let _blockchain_info = rpc.get_blockchain_info();
     let best_block_hash = rpc.get_best_block_hash().unwrap();
     println!("best block hash: {}", best_block_hash);

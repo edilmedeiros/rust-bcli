@@ -14,7 +14,7 @@ use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
-pub struct Args {
+pub struct Opts {
 
     #[arg(long)]
     pub url: String,
@@ -40,6 +40,6 @@ pub enum Commands {
 }
 
 // Returns the arguments from the clap parser as an Args struct defined above
-pub fn get_args() -> Args {
-    Args::parse()
+pub fn get_args() -> Opts {
+    Opts::parse()
 }
