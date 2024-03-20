@@ -16,13 +16,13 @@ use clap::{Parser, Subcommand};
 #[command(version, about, long_about = None)]
 pub struct Args {
     #[arg(long)]
-    pub url: String,
+    pub url: Option<String>,
 
     #[arg(short, long)]
-    pub user: String,
+    pub user: Option<String>,
 
     #[arg(short, long)]
-    pub pass: String,
+    pub pass: Option<String>,
 
     #[command(subcommand)]
     pub command: Commands,
