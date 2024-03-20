@@ -20,7 +20,7 @@ pub struct Opts {
     pub conf: String,
 
     #[arg(long, default_value = "localhost")]
-    pub rpcurl: Option<String>,
+    pub rpcurl: String,
 
     #[arg(long, default_value = "8332")]
     pub rpcport: String,
