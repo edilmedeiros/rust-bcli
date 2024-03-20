@@ -1,7 +1,7 @@
 //
 // parse.rs
 //
-// TODO: I assume that further parsing functions are expected and they can be 
+// TODO: I assume that further parsing functions are expected and they can be
 // placed here as well
 //
 #![allow(unused_imports)] // TODO: Remove when done
@@ -33,6 +33,10 @@ pub struct Args {
 pub enum Commands {
     #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
     GetBestBlockHash,
+
+    #[command(name = UPTIME, about = UPTIME)]
+    Uptime,
+
 }
 
 // Returns the arguments from the clap parser as an Args struct defined above
