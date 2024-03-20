@@ -39,14 +39,17 @@ pub const TESTNET: &str = "testnet";
 
 pub const HELP_OPTION_MSG: &str = "Print this help message and exit";
 
-pub const ADDR_INFO_MSG: &str = "Get the number of addresses known to the node, per network and total, \
+pub const ADDR_INFO_MSG: &str =
+    "Get the number of addresses known to the node, per network and total, \
                                 after filtering for quality and recency. The total number of \
                                 addresses known to the node may be higher.";
 
-pub const CONF_MSG: &str = "Specify configuration file. Relative paths will be prefixed by datadir \
+pub const CONF_MSG: &str =
+    "Specify configuration file. Relative paths will be prefixed by datadir \
                            location. (default: bitcoin.conf)";
 
-pub const COLOR_MSG: &str = "Color setting for CLI output (default: auto). Valid values: always, auto \
+pub const COLOR_MSG: &str =
+    "Color setting for CLI output (default: auto). Valid values: always, auto \
                             (add color codes when standard output is connected to a terminal
                             and OS is not WIN32), never.";
 
@@ -67,37 +70,44 @@ pub const GET_INFO_MSG: &str = "Get general information from the remote server. 
 
 pub const NAMED_MSG: &str = "Pass named instead of positional arguments (default: false)";
 
-pub const NET_INFO_MSG: &str = "Get network peer connection information from the remote server. An \
+pub const NET_INFO_MSG: &str =
+    "Get network peer connection information from the remote server. An \
                                 optional integer argument from 0 to 4 can be passed for different \
                                 peers listings (default: 0). Pass \"help\" for detailed help \
                                 documentation.";
 
-pub const RPC_CLIENT_TIMEOUT_MSG: &str = "Timeout in seconds during HTTP requests, or 0 for no timeout. (default: \
+pub const RPC_CLIENT_TIMEOUT_MSG: &str =
+    "Timeout in seconds during HTTP requests, or 0 for no timeout. (default: \
                                           900)";
 
 pub const RPC_CONNECT_MSG: &str = "Send commands to node running on <ip> (default: 127.0.0.1)";
 
-pub const RPC_COOKIE_FILE_MSG: &str = "Location of the auth cookie. Relative paths will be prefixed by a \
+pub const RPC_COOKIE_FILE_MSG: &str =
+    "Location of the auth cookie. Relative paths will be prefixed by a \
                                       net-specific datadir location. (default: data dir)";
 
 pub const RPC_PASSWORD_MSG: &str = "Password for JSON-RPC connections";
 
-pub const RPC_PORT_MSG: &str = "Connect to JSON-RPC on <port> (default: 8332, testnet: 18332, signet: \
+pub const RPC_PORT_MSG: &str =
+    "Connect to JSON-RPC on <port> (default: 8332, testnet: 18332, signet: \
                                 38332, regtest: 18443)";
 
 pub const RPC_USER_MSG: &str = "Username for JSON-RPC connections";
 
 pub const RPC_WAIT_MSG: &str = "Wait for RPC server to start";
 
-pub const RPC_TIMEOUT_MSG: &str = "Timeout in seconds to wait for the RPC server to start, or 0 for no \
+pub const RPC_TIMEOUT_MSG: &str =
+    "Timeout in seconds to wait for the RPC server to start, or 0 for no \
                                   timeout. (default: 0)";
 
-pub const RPC_WALLET_MSG: &str = "Send RPC for non-default wallet on RPC server (needs to exactly match \
+pub const RPC_WALLET_MSG: &str =
+    "Send RPC for non-default wallet on RPC server (needs to exactly match \
                                   corresponding -wallet option passed to bitcoind). This changes \
                                   the RPC endpoint used, e.g. \
                                   http://127.0.0.1:8332/wallet/<walletname>";
 
-pub const STDIN_MSG: &str = "Read extra arguments from standard input, one per line until EOF/Ctrl-D \
+pub const STDIN_MSG: &str =
+    "Read extra arguments from standard input, one per line until EOF/Ctrl-D \
                             (recommended for sensitive information such as passphrases). When \
                             combined with -stdinrpcpass, the first line from standard input \
                             is used for the RPC password.";
@@ -117,7 +127,8 @@ pub const VERSION_MSG: &str = "Print version and exit";
 pub const CHAIN_MSG: &str = "Use the chain <chain> (default: main). Allowed values: main, test, \
                             signet, regtest";
 
-pub const SIGNET_MSG: &str = "Use the signet chain. Equivalent to -chain=signet. Note that the network \
+pub const SIGNET_MSG: &str =
+    "Use the signet chain. Equivalent to -chain=signet. Note that the network \
                               is defined by the -signetchallenge parameter";
 
 pub const SIGNET_CHALLENGE_MSG: &str = "Blocks must satisfy the given script to be considered valid (only for \

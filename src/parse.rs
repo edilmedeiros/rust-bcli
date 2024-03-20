@@ -14,22 +14,32 @@ use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
-pub struct Args {
+
+pub struct Opts {
+    #[arg(long, default_value = "")]
+    pub conf: String,
+
     #[arg(long)]
-    pub url: Option<String>,
+    pub rpcurl: Option<String>,
 
-    #[arg(short, long)]
-    pub user: Option<String>,
+    #[arg(long)]
+    pub rpcport: Option<String>,
 
-    #[arg(short, long)]
-    pub pass: Option<String>,
+    #[arg(long)]
+    pub rpcuser: Option<String>,
+
+    #[arg(long)]
+    pub rpcpassword: Option<String>,
 
     #[command(subcommand)]
-    pub command: Commands,
+    pub command: Command,
 }
 
 #[derive(Debug, Subcommand)]
-pub enum Commands {
+pub enum Command {
+    // man
+
+    // stop
     #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
     GetBestBlockHash,
 
@@ -38,6 +48,6 @@ pub enum Commands {
 }
 
 // Returns the arguments from the clap parser as an Args struct defined above
-pub fn get_args() -> Args {
-    Args::parse()
+pub fn get_args() -> Opts {
+    Opts::parse()
 }

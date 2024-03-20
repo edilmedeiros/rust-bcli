@@ -1,10 +1,22 @@
-# rust-bcli
-Bitcoin CLI in Rust.
+# Bitcoin CLI in Rust
+
+This is an optiniated alternative implementation in Rust of the `bitcoin-cli`
+tool to interact with Bitcoin Core's RPC interface. 
+
+## Project Status
+
+We are currently in the ideation phase, don't expect to find a tool now.
+
+Check the issues and tell us your chores with `bitcoin-cli` and how it could be
+improved.
 
 ## The problem
 
 The main tool provided by [Bitcoin-core](https://github.com/bitcoin/bitcoin) is
-`bitcoind`, a daemon that implements full node, wallet and mining logic. 
+`bitcoind`, a daemon that implements full node, wallet and mining logic.
+`bitcoin-cli` is a command line RPC client to interact with the node.
+
+The following came as a project suggestion on the [2024 Chaincode Labs FOSS Program](https://learning.chaincode.com/#FOSS).
 
 Some of the shortcomings of `bitcoin-cli`:
 - Nonstandard single dash long arguments, e.g., `-datadir`, when most other CLI
@@ -49,3 +61,23 @@ Improvements:
   specifically, instead of receiving a somewhat inscrutable error from the RPC
   server.
 
+## Design
+
+The binary is called `bitcoin`. 
+
+``` shell
+Usage:  bitcoin [options] <method> [--arg value]...  Send command to Bitcoin Core with named arguments
+or:     bitcoin [options] man                        Display list of supported methods
+or:     bitcoin [options] man <method>               Display manual page for a method
+```
+
+We want to have a coherent user interface, so we define a semantic structure.
+
+**Options** are information that influences the behavior of the tool and don't
+have connection to Core's RPC interface methods.
+
+**Methods** are the available commands known and exposed by the RPC server.
+
+**Arguments** are input data required by the specified method.
+
+The `man`ual method is used to show the manual page of a specified method.
