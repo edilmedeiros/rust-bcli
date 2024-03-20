@@ -16,21 +16,34 @@ use clap::{Parser, Subcommand};
 #[command(version, about, long_about = None)]
 pub struct Opts {
 
-    #[arg(long)]
-    pub url: String,
+    #[arg(long, default_value = "")]
+    pub conf: String,
 
-    #[arg(short, long)]
-    pub user: String,
+    #[arg(long, default_value = "localhost")]
+    pub rpcurl: Option<String>,
 
-    #[arg(short, long)]
-    pub pass: String,
+    #[arg(long, default_value = "8332")]
+    pub rpcport: String,
+
+    #[arg(long, default_value = "")]
+    pub rpcuser: String,
+
+    #[arg(long, default_value = "")]
+    pub rpcpassword: String,
 
     #[command(subcommand)]
-    pub command: Commands,
+    pub command: Command,
 }
 
 #[derive(Debug, Subcommand)]
-pub enum Commands {
+pub enum Command {
+
+    // man
+
+    // stop
+
+    // uptime
+
     #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
     GetBestBlockHash,
 
