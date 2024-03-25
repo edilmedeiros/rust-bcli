@@ -32,6 +32,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Match command args and call the right function!
     match opts.command {
+        Command::Stop => {
+            stop_node(&rpc)?;
+        }
         Command::GetBestBlockHash => {
             get_best_block_hash(&rpc)?;
         }

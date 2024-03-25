@@ -120,10 +120,6 @@ pub const TESTNET_MSG: &str = "Use the test chain. Equivalent to -chain=test.";
 pub const HELP_COMMAND: &str = "help";
 pub const HELP_COMMAND_MSG: &str = "help ( \"command\" )";
 
-pub const STOP: &str = "stop";
-pub const STOP_MSG: &str = "stop";
-
-
 // == Blockchain ==
 pub const GET_BLOCK: &str = "getblock";
 pub const GET_BLOCKCHAIN_INFO: &str = "getblockchaininfo";

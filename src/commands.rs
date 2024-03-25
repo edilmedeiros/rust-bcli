@@ -18,6 +18,13 @@ use bitcoincore_rpc::{bitcoin, bitcoin::BlockHash, Auth, Client, Error, RpcApi};
 // The function is expected to return the best block as a primitive number
 // type (Not implemented yet)
 
+pub fn stop_node(rpc: &Client) -> Result<String, Error> {
+    let result = rpc.stop()?;
+    assert_eq!(result, "Bitcoin Core stopping");
+    println!("{result}");
+    Ok(result)
+}
+
 pub fn get_best_block_hash(rpc: &Client) -> Result<BlockHash, Error> {
     let best_block_hash = rpc.get_best_block_hash()?;
     println!("best block hash: {}", best_block_hash);

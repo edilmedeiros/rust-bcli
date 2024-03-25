@@ -16,7 +16,8 @@ use clap::{Parser, Subcommand};
 #[command(version, about, long_about = None)]
 pub struct Opts {
 
-    /// Specify configuration file. Relative paths will be prefixed by datadir location.
+    /// Specify configuration file. Relative paths will be prefixed by datadir
+    /// location.
     //#[arg(long, default_value = "bitcoin.conf")]
     //pub conf: String,
 
@@ -43,9 +44,9 @@ pub struct Opts {
 #[derive(Debug, Subcommand)]
 pub enum Command {
 
-    // man
-
-    // stop
+    /// Request a graceful shutdown of Bitcoin Core.
+    #[command(name = "stop")]
+    Stop,
 
     /// Returns the hash of the best (tip) in the most-work fully-validated
     /// chain.
