@@ -22,7 +22,6 @@ use toml::Value;
 use commands::*;
 use commands::*;
 use config::Config;
-use dirs;
 use parse::get_args;
 use parse::Command;
 use parse::Opts;
@@ -42,7 +41,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .join("Bitcoin/bcli.toml"),
     };
 
-    let mut file = File::open(&bcli_config).expect("Could not open file");
+    let mut file = File::open(bcli_config).expect("Could not open file");
     let mut contents = String::new();
     file.read_to_string(&mut contents)
         .expect("Could not read file");
