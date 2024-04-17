@@ -8,18 +8,13 @@
 pub const HELP_OPTION: &str = "?";
 pub const ADDR_INFO: &str = "addrinfo";
 pub const COLOR: &str = "color";
-pub const CONF: &str = "conf";
 pub const DATA_DIR: &str = "datadir";
 pub const GENERATE: &str = "generate";
 pub const GET_INFO: &str = "getinfo";
 pub const NAMED: &str = "named";
 pub const NET_INFO: &str = "netinfo";
 pub const RPC_CLIENT_TIMEOUT: &str = "rpcclienttimeout";
-pub const RPC_CONNECT: &str = "rpcconnect";
 pub const RPC_COOKIE_FILE: &str = "rpccookiefile";
-pub const RPC_PASSWORD: &str = "rpcpassword";
-pub const RPC_PORT: &str = "rpcport";
-pub const RPC_USER: &str = "rpcuser";
 pub const RPC_WAIT: &str = "rpcwait";
 pub const RPC_TIMEOUT: &str = "rpcwaittimeout";
 pub const RPC_WALLET: &str = "rpcwallet";
@@ -146,11 +141,12 @@ pub const TESTNET_MSG: &str = "Use the test chain. Equivalent to -chain=test.";
 
 // == Control ==
 pub const HELP_COMMAND: &str = "help";
+pub const HELP_COMMAND_MSG: &str = "help ( \"command\" )";
+
 pub const STOP: &str = "stop";
-pub const UPTIME: &str = "uptime";
+pub const STOP_MSG: &str = "stop";
 
 // == Blockchain ==
-pub const GET_BEST_BLOCK_HASH: &str = "getbestblockhash";
 pub const GET_BLOCK: &str = "getblock";
 pub const GET_BLOCKCHAIN_INFO: &str = "getblockchaininfo";
 pub const GET_BLOCK_COUNT: &str = "getblockcount";
@@ -177,12 +173,8 @@ pub const TEST_MEMPOOL_ACCEPT: &str = "testmempoolaccept";
 // TODO: Adapt messages as we implenet the commands
 
 // == Control ==
-pub const HELP_COMMAND_MSG: &str = "help ( \"command\" )";
-pub const STOP_MSG: &str = "stop";
-pub const UPTIME_MSG: &str = "uptime";
 
 // == Blockchain ==
-pub const GET_BEST_BLOCK_HASH_MSG: &str = "getbestblockhash";
 pub const GET_BLOCK_MSG: &str = "getblock \"blockhash\" ( verbosity )";
 pub const GET_BLOCKCHAIN_INFO_MSG: &str = "getblockchaininfo";
 pub const GET_BLOCK_COUNT_MSG: &str = "getblockcount";

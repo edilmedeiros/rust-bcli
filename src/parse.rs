@@ -16,19 +16,24 @@ use clap::{Parser, Subcommand};
 #[command(version, about, long_about = None)]
 
 pub struct Opts {
+    /// Specify configuration file. Relative paths will be prefixed by datadir location.
     #[arg(long, default_value = "")]
     pub conf: String,
 
-    #[arg(long)]
+    /// Send commands to the node running on <ip>
+    #[arg(long, value_name = "ip")]
     pub rpcurl: Option<String>,
 
-    #[arg(long)]
+    /// Connect to JSON-RPC on <port>
+    #[arg(long, value_name = "port")]
     pub rpcport: Option<String>,
 
-    #[arg(long)]
+    /// Username for JSON_RPC connections
+    #[arg(long, value_name = "user")]
     pub rpcuser: Option<String>,
 
-    #[arg(long)]
+    /// Password for JSON-RPC connections
+    #[arg(long, value_name = "pw")]
     pub rpcpassword: Option<String>,
 
     #[command(subcommand)]
@@ -43,7 +48,8 @@ pub enum Command {
     #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
     GetBestBlockHash,
 
-    #[command(name = UPTIME, about = UPTIME)]
+    /// Returns the total uptime of the server.
+    #[command(name = "uptime")]
     Uptime,
 }
 

@@ -17,6 +17,9 @@ bitcoincore-rpc = "0.18.0"
 confy = "0.5.0"
 serde = { version = "1.0", features = ["derive"] }
 
+[dev-dependencies]
+assert_cmd = "2.0.14"
+
 [[bin]]
 name = "bitcoin"
 path = "src/main.rs"
