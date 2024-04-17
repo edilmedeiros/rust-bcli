@@ -17,8 +17,8 @@ use clap::{Parser, Subcommand};
 
 pub struct Opts {
     /// Specify configuration file. Relative paths will be prefixed by datadir location.
-    #[arg(long, default_value = "")]
-    pub conf: String,
+    #[arg(long)]
+    pub conf: Option<String>,
 
     /// Send commands to the node running on <ip>
     #[arg(long, value_name = "ip")]

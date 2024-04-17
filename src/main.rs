@@ -13,11 +13,16 @@ mod parse;
 mod rpc;
 mod utils;
 
+use std::fs::File;
+use std::io::Read;
+use std::path::PathBuf;
+use toml::Value;
+
 // Project shortcuts
 use commands::*;
 use commands::*;
 use config::Config;
-use confy;
+use dirs;
 use parse::get_args;
 use parse::Command;
 use parse::Opts;
@@ -26,38 +31,50 @@ use parse::Opts;
 use bitcoincore_rpc::{bitcoin, Auth, Client, Error, RpcApi};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // TODO: Where should be the default folder and format for bcli config?
-    let config: Config = confy::load("bcli", "config")?;
-
     // Get the arguments from our wrapper parser
     let opts = get_args();
 
+    // Check for provided file path or use config dirs
+    let bcli_config: PathBuf = match opts.conf {
+        Some(conf) => PathBuf::from(conf),
+        None => dirs::config_dir()
+            .ok_or_else(|| "Could not get config dir")?
+            .join("Bitcoin/bcli.toml"),
+    };
+
+    let mut file = File::open(&bcli_config).expect("Could not open file");
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)
+        .expect("Could not read file");
+
+    let config: Config = toml::from_str(&contents).expect("Could not parse TOML");
+
     // If there's a configuration file we use the rpc values from there.
-    let url: String = match config.rpc_url {
+    let url: String = match opts.rpcurl {
         Some(url) => url,
-        None => opts
-            .rpcurl
+        None => config
+            .rpc_url
             .expect("You should provide RPC url by configuration file or args. Use --help"),
     };
 
-    let port: String = match config.rpc_port {
+    let port: String = match opts.rpcpassword {
         Some(pass) => pass,
-        None => opts
-            .rpcpassword
+        None => config
+            .rpc_port
             .expect("You should provide RPC pass by configuration file or args. Use --help"),
     };
 
-    let user: String = match config.rpc_user {
+    let user: String = match opts.rpcuser {
         Some(user) => user,
-        None => opts
-            .rpcuser
+        None => config
+            .rpc_user
             .expect("You should provide RPC user by configuration file or args. Use --help"),
     };
 
-    let pass: String = match config.rpc_password {
+    let pass: String = match opts.rpcport {
         Some(pass) => pass,
-        None => opts
-            .rpcport
+        None => config
+            .rpc_password
             .expect("You should provide RPC pass by configuration file or args. Use --help"),
     };
 
