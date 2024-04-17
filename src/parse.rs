@@ -45,7 +45,9 @@ pub enum Command {
     // man
 
     // stop
-    #[command(name = GET_BEST_BLOCK_HASH, about = GET_BEST_BLOCK_HASH_MSG)]
+    /// Returns the hash of the best (tip) in the most-work fully-validated
+    /// chain.
+    #[command(name = "getbestblockhash")]
     GetBestBlockHash,
 
     /// Returns the total uptime of the server.
